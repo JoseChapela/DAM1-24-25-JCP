@@ -8,16 +8,16 @@ import java.util.Scanner;
 public class EP0122 {
     public static void main(String[] args) {
 
-        float grados, faren;
+        double grados, faren;
 
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Introducir grados celsius");
-        grados = sc.nextFloat();
+        faren = sc.nextDouble();
 
-        faren = grados*9/5+32;
+        grados = 5/9.0*(faren-32);
 
-        System.out.println("Son: "+faren+" Farenheit");
+        System.out.printf("Son %.2f grados Celsius", grados);
 
         sc.close();
         
