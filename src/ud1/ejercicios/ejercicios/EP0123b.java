@@ -20,7 +20,7 @@ public class EP0123b {
         resultado = unidad=='p'? cantidad*453.592/1000 : cantidad*1000/453.592;
         unidad2 = unidad=='p'?"kg" :"pounds";
 
-        System.out.println("el resultado es "+resultado+" "+unidad2);
+        System.out.printf("el resultado es %.2f "+unidad2, resultado);
 
         sc.close();
         
