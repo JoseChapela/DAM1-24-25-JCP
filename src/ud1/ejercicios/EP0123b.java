@@ -7,8 +7,7 @@ public class EP0123b {
 
         char unidad;
         String unidad2;
-        double resultado;
-        double cantidad;
+        double resultado, cantidad;
 
         Scanner sc = new Scanner(System.in);
 
