@@ -27,7 +27,7 @@ public class EP0133 {
         System.out.println("Introduce unidades de destino: bytes, kilobytes, megabytes o gigabytes");
         uds2 = sc.next();
 
-        resultado = uds1.equals("bytes")? cantidad : uds2.equals("kilobytes")? cantidad/MIL24 : uds2.equals("megabytes")? cantidad/Math.pow(MIL24, 2): uds2.equals("gigabytes")? cantidad/Math.pow(MIL24, 3): 0;
+        resultado = uds2.equals("bytes")? cantidad : uds2.equals("kilobytes")? cantidad/MIL24 : uds2.equals("megabytes")? cantidad/Math.pow(MIL24, 2): uds2.equals("gigabytes")? cantidad/Math.pow(MIL24, 3): 0;
 
         System.out.printf("Son %.3f %s", resultado, uds2);
         sc.close();
