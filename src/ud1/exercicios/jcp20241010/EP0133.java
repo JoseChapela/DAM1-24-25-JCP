@@ -19,13 +19,13 @@ public class EP0133 {
         uds1 = sc.nextLine();
        
         System.out.println("Introduce cantidad");
-        cantidad = sc.nextDouble();
+        cantidad = sc.nextDouble();sc.nextLine();
 
         cantidad = uds1.equals("bytes")? cantidad : uds1.equals("kilobytes")? cantidad*MIL24 : uds1.equals("megabytes")? cantidad*Math.pow(MIL24, 2): uds1.equals("gigabytes")? cantidad*Math.pow(MIL24,3): 0;
          
 
         System.out.println("Introduce unidades de destino: bytes, kilobytes, megabytes o gigabytes");
-        uds2 = sc.next();
+        uds2 = sc.nextLine();
 
         resultado = uds2.equals("bytes")? cantidad : uds2.equals("kilobytes")? cantidad/MIL24 : uds2.equals("megabytes")? cantidad/Math.pow(MIL24, 2): uds2.equals("gigabytes")? cantidad/Math.pow(MIL24, 3): 0;
 
