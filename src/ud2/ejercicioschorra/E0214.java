@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class E0214 {
     public static void main(String[] args) {
+        
         int dia, mes, anho;
 
         Scanner sc = new Scanner(System.in);
@@ -18,54 +19,43 @@ public class E0214 {
         System.out.println("Introduce año");
         anho = sc.nextInt();
         sc.close();
+        dia++;
 
         switch (mes) {
             case 1, 3, 5, 7, 8, 10, 12:
-
-                if (dia==31) {
+                if (dia>31) {
                     mes++;
                     dia=1;
-                    } else {
-                    dia++;
-                    }
-                    if (mes==13) {
-                        mes=1;
+                    if (mes>12) {
                         anho++;
+                        mes=1;
                     }
-                
+                }
                 break;
-
-            case 2: 
             
-                if (dia==28) {
+            case 2:
+                if (dia>28) {
                     mes++;
                     dia=1;
-                    } else {
-                    dia++;
-                    }
-                    if (mes==13) {
-                        mes=1;
+                    if (mes>12) {
                         anho++;
+                        mes=1;
                     }
-
+                }
                 break;
         
             default:
-                if (dia==28) {
+                if (dia>30) {
                     mes++;
-                    dia=0;
-                    } else {
-                    dia++;
+                    dia=1;
+                    if (mes>12) {
+                        anho++;
+                        mes=1;
                     }
-                if (mes==13) {
-                    mes=0;
-                    anho++;
                 }
-                
-                    
                 break;
         }
-        System.out.printf("La fecha de mañana es %d del %d de %d", dia, mes, anho);
+        System.out.printf("El día de mañana será %d de %d del año %d", dia, mes, anho);
     }
     
 }
