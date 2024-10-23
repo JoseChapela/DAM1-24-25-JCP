@@ -19,27 +19,24 @@ public class E0213 {
         sec = sc.nextInt();
         sc.close();
 
-        System.out.printf("Para las %d : %d : %d \n", hora, min, sec);
+        sec++;
 
-        switch(sec) {
-
-            
-            case 59 -> {sec = 0;
-                        min++;
-                        if (min==60) {
-                            min=0;
-                            hora++;
-                            if (hora>24) {
-                                hora = min = sec = 0;
-                                
-                            }
-                        }
-                }
-            default -> sec++;
+       if (sec>59) {
+        min++;
+        sec=0;
+            if (min>59) {
+                hora++;
+                min=0;
+                    if (hora>23) {
+                        hora=0;
+                    }
+             }
+        
+        } else {
+            sec++;
         }
-        System.out.printf("1 segundo más tarde serán las %d : %d : %d \n", hora, min, sec);
-        
-        
-    }
+        System.out.printf("Un segundo más tarde serán las %d : %d : %d", hora, min, sec);
+                
     
+    }
 }
