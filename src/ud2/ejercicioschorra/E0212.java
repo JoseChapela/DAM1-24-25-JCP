@@ -26,17 +26,17 @@ public class E0212 {
         switch (mes) {
             case 1,3,5,7,8,10,12:
 
-            if( dia > 31 ){ correcto=false; }
-                
+                correcto = dia > 31;
                 break;
 
             case 2:
 
-            if( dia > 28 ){ correcto =false; }
-
+                correcto = dia > 28;
                 break;
         
-            default: if( dia > 30 ){ correcto =false; }
+            default:
+                
+                correcto = dia > 30;
                 break;
         }
         if (correcto=true) { System.out.println("La fecha es correcta");
