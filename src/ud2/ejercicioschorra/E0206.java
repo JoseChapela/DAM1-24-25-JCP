@@ -4,7 +4,7 @@ package ud2.ejercicioschorra;
 
 import java.util.Scanner;
 
-public class EP206 {
+public class E0206 {
      public static void main(String[] args) {
         
         Scanner sc = new Scanner(System.in);
