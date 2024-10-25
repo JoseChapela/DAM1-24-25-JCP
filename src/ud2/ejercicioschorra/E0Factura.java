@@ -7,7 +7,7 @@ package ud2.ejercicioschorra;
 
 import java.util.Scanner;
 
-public class Factura {
+public class E0Factura {
     public static void main(String[] args) {
         
         Scanner sc = new Scanner(System.in);

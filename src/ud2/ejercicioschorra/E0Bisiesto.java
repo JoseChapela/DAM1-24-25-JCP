@@ -8,7 +8,7 @@ package ud2.ejercicioschorra;
 
 import java.util.Scanner;
 
-public class Bisiesto {
+public class E0Bisiesto {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);

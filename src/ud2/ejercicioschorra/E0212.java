@@ -21,22 +21,25 @@ public class E0212 {
         System.out.println("Introduce el año");
         sc.close();
 
-        dia++;
-
         switch (mes) {
             case 1,3,5,7,8,10,12:
 
-                correcto = dia > 31;
+                correcto = dia <= 31 && dia >=1;
                 break;
 
             case 2:
 
-                correcto = dia > 28;
+                correcto = dia > 28 && dia >=1;
+                break;
+
+            case 4, 6, 9, 11:
+
+                correcto = dia > 30 && dia >=1;
                 break;
         
             default:
                 
-                correcto = dia > 30;
+                correcto = false;
                 break;
         }
         if (correcto=true) { System.out.println("La fecha es correcta");

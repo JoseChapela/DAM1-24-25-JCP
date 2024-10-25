@@ -22,6 +22,7 @@ public class E0208 {
         b = sc.nextDouble();
         System.out.println("Introduce el coeficiente c");
         c = sc.nextDouble();
+        sc.close();
 
         intoraiz = Math.sqrt(Math.pow(b, 2)*4*a*c) ;
         solution1= (-b+Math.sqrt(intoraiz))/(2*a);

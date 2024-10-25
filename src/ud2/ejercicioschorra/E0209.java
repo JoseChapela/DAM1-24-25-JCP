@@ -14,12 +14,14 @@ public class E0209 {
         
         long num;
         int cifras = 0;
-        boolean correcto=true;
+        boolean correcto = true;
+       
 
         
         System.out.println("CUANTAS CIFRAS TIENE UN NÚMERO");
         System.out.println("Introduce un número entero entre -99999 y 99999");
         num = sc.nextLong();
+        sc.close();
 
         if (num<10 && num > -10) {
             cifras = 1;
