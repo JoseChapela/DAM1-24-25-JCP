@@ -10,7 +10,7 @@ public class EP0211 {
 
         Scanner sc = new Scanner (System.in);
         int num;
-        boolean capicua;
+        boolean capicua = false;
         
         System.out.println("ES CAPICÚA?");
         System.out.println("Introduce un número comprendido entre 0 y 9999");
@@ -50,11 +50,11 @@ public class EP0211 {
             System.out.println("Número inválido");
         }
 
-        if (capicua = true) {
+        if (capicua) {
 
             System.out.println("Es capicúa");
             
-        } else if (capicua = false ) {
+        } else if (!capicua) {
 
             System.out.println("No es capicúa");
             

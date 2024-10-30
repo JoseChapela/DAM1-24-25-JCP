@@ -14,7 +14,7 @@ public class E0209 {
         
         long num;
         int cifras = 0;
-        boolean correcto = true;
+        boolean correcto = false;
        
 
         
@@ -25,27 +25,30 @@ public class E0209 {
 
         if (num<10 && num > -10) {
             cifras = 1;
+            correcto = true;
             
         } else if (num < 100 && num > -100) {
             cifras = 2;
+            correcto = true;
             
         } else if (num < 1000  && num > -1000) {
             cifras = 3;
+            correcto = true;
 
         } else if (num < 10000  && num > -10000) {
             cifras = 4;
+            correcto = true;
 
         } else if (num < 100000  && num > -100000) {
             cifras = 5;
+            correcto = true;
 
         } else {
-            correcto=false;
+            System.out.println("Valores no válidos");
         }
-        if (correcto=true) {
+        if (correcto) {
             System.out.printf("El número tiene %d cifras", cifras);
             
-        } else {
-            System.out.println("Valores no válidos");
         }
         
     }

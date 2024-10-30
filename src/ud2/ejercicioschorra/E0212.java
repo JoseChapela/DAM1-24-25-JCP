@@ -42,7 +42,7 @@ public class E0212 {
                 correcto = false;
                 break;
         }
-        if (correcto=true) { System.out.println("La fecha es correcta");
+        if (correcto) { System.out.println("La fecha es correcta");
             
         }else { System.out.println("La fecha es incorrecta"); }
         
