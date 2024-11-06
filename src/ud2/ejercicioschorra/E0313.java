@@ -15,10 +15,13 @@ public class E0313 {
         for (int alumno = 1 ; alumno <= 6 ; alumno++ ){
         System.out.println("Introduce nota del "+alumno+" alumno:");
         nota = sc.nextInt();
-        aprobado = nota<5? false : true;
-        
+        if (nota < 5) {
+            numAprobados++;
+        } else {
+            numSuspensos++;
         }
-        numSuspensos = 6 - numAprobados;
+         
+        }
         System.out.println("Han aprobado "+numAprobados);
         System.out.println("Han supendido "+numSuspensos);
     }
