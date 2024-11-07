@@ -8,21 +8,21 @@ import java.util.Scanner;
 public class E0313 {
     public static void main(String[] args) {
 
-        int nota, numAprobados = 0, numSuspensos;
-        Boolean aprobado;
-        Scanner sc = new Scanner (System.in);
+        int nota, numAprobados = 0, numSuspensos = 0;
+        Scanner sc = new Scanner(System.in);
 
-        for (int alumno = 1 ; alumno <= 6 ; alumno++ ){
-        System.out.println("Introduce nota del "+alumno+" alumno:");
-        nota = sc.nextInt();
-        if (nota < 5) {
-            numAprobados++;
-        } else {
-            numSuspensos++;
+        for (int alumno = 1; alumno <= 6; alumno++) {
+            System.out.println("Introduce nota del " + alumno + " alumno:");
+            nota = sc.nextInt();
+            if (nota < 5) {
+                numAprobados++;
+            } else {
+                numSuspensos++;
+            }
         }
-         
-        }
-        System.out.println("Han aprobado "+numAprobados);
-        System.out.println("Han supendido "+numSuspensos);
+
+        sc.close();
+        System.out.println("Han aprobado " + numAprobados);
+        System.out.println("Han supendido " + numSuspensos);
     }
 }
