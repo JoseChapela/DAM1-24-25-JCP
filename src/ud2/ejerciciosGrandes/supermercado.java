@@ -17,10 +17,11 @@ public class supermercado {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner (System.in);
-        int decision = 1, cantidad=0,moneda, pago;
+        int decision = 1, cantidad=1,moneda, pago;
         double precio=0, total=0;
+        boolean repetir=true;
 
-        while (decision  <= 5 && decision >= 1 ) {
+        while (repetir) {
             System.out.println("Introducir unidades: (1)");
             System.out.println("Conócenos: (2)");
             System.out.println("Ver cantidad total: (3)");
@@ -28,8 +29,8 @@ public class supermercado {
             System.out.println("Reiniciar: (5)");
             System.out.println("SALIR: (0)");
             decision = sc.nextInt();
-            
-            
+            repetir = decision != 0;
+                       
             switch (decision) {
                 case 1: System.out.println("Introduce el precio del producto:");
                         precio = sc.nextDouble();
@@ -42,7 +43,7 @@ public class supermercado {
                     
                     break;
 
-                case 3: System.out.printf("\nEl total son: %.2f euros", total);
+                case 3: System.out.printf("\nEl total son: %.2f euros \n", total);
                     
                     break;
 
@@ -85,12 +86,13 @@ public class supermercado {
         }
 
         System.out.println("GRACIAS POR VISITARNOS");
+        sc.close();
     }
 
     public static String aDevolver (double precio, double dinero) {
 
-        String vuelta="";
         double billete500, billete200, billete100, billete50, billete20, billete10, billete5, moneda2, moneda1, centimo;
+
         billete500 = precio/500;
         precio %= 500;
         billete200 = precio/200;
@@ -107,9 +109,10 @@ public class supermercado {
         precio %= 5;
         moneda2 = precio/2;
         precio %= 2;
-        moneda1 =centimo=precio;
+        moneda1 = precio;
+        centimo = precio*10;
 
-        return vuelta = String.format("Serán: \n %.0f Billetes de 500 \n %.0f Billetes de 200 \n %.0f Billetes de 100 \n %.0f Billetes de 50 \n %.0f Billetes de 20 \n %.0f Billetes de 10 \n %.0f Billetes de 5 \n %.0f Monedas de 2 euros  \n %.0f Monedas de 1 euro \n %.2f céntimos", billete500, billete200, billete100, billete50, billete20, billete10, billete5, moneda2, moneda1, centimo);
+        return String.format("Serán: \n %.0f Billetes de 500 \n %.0f Billetes de 200 \n %.0f Billetes de 100 \n %.0f Billetes de 50 \n %.0f Billetes de 20 \n %.0f Billetes de 10 \n %.0f Billetes de 5 \n %.0f Monedas de 2 euros  \n %.0f Monedas de 1 euro \n %.2f céntimos", billete500, billete200, billete100, billete50, billete20, billete10, billete5, moneda2, moneda1, centimo);
 
     }
 

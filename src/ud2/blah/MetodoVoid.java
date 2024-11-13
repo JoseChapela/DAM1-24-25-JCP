@@ -14,6 +14,8 @@ public class MetodoVoid {
         letra = sc.nextLine().charAt(0);
       
         cajaTexto(cadena, letra); // llamada al método
+
+        sc.close();
     }
 
     // método que muestra un String rodeado por un borde
