@@ -1,16 +1,22 @@
 package ud2.ejerciciosGrandes;
 
 public class calculadoraHumana {
+
+    static final int NUM_MAX = 100;
     public static void main(String[] args) {
 
-        final int NUM_MAX = 100;
+        final int NUM_OPERACIONES = 8;
 
-        int num;
+        int num1, num2;
         
         System.out.println("CALCULADORA HUMANA");
-        numeroRandom(NUM_MAX);
 
-        
+        for (int i = 0 ; i < NUM_OPERACIONES -1 ; i++ ) {
+
+            num1 = numeroRandom(NUM_MAX);
+            num2 = numeroRandom(NUM_MAX);
+            
+        }     
 
     }
 
@@ -20,27 +26,32 @@ public class calculadoraHumana {
 
     }
 
-    public static int operation (int num1, int num2){
+    private static char signoAleatorio () {
 
-        int numOp = (int)Math.random()*3;
+        int num = (int) Math.random()*3;
+        char signo = num == 0? '+' : num == 1? '-' : num == 2? '*' : '/';
+        return signo;    
+    }
 
-        switch (numOp) {
-            case 0:
+    public static int operation (int num1, int num2, char signo){
+
+        switch (signo) {
+            case '+':
 
                 return num1 + num2;
 
-            case 1:
+            case '-':
 
                 return num1 - num2;
 
-            case 2:
+            case '*':
 
                 return num1 * num2;
 
-            case 3:
+            case '/':
                 while (num2 == 0 || num2 > num1) {
                     
-                    num2 = numeroRandom();
+                    num2 = numeroRandom(NUM_MAX);
                 }
                 return num1 / num2;
         
