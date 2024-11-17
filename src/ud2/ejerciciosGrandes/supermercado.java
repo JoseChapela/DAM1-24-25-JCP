@@ -9,7 +9,7 @@ Si el método de pago elegido es “en efectivo”, entonces se solicitará el i
 Una vez finalizada la compra de un cliente el programa solicitará si se desea repetir el proceso para un nuevo cliente.
  */
 
-package ud2.ejerciciosGrandes;
+package ud2.ejerciciosgrandes;
 
 import java.util.Scanner;
 

@@ -2,7 +2,7 @@
 segundos. El programa debe mostrar qué hora será un segundo más tarde. Por ejemplo:
 hora actual (10:41:59) => hora actual + 1 segundo (10:42:00)*/
 
-package ud2.ejercicioschorra;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 

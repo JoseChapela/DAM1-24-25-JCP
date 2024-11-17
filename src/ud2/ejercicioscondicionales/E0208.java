@@ -4,7 +4,7 @@ Las soluciones de una ecuación de segundo grado son dos, según se utilice el s
 Si el discriminante (el contenido de la raíz cuadrada) es negativo, el programa deberá indicar que no existen soluciones con números reale
  */
 
-package ud2.ejercicioschorra;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 

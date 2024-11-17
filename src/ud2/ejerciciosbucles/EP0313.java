@@ -3,7 +3,7 @@ en su representación binaria. Hay que tener en cuenta que desconocemos cuántas
 tiene el número que introduce el usuario.
 Por simplicidad, iremos mostrando el número binario con un digito por línea. */
 
-package ud2.ejercicioschorra;
+package ud2.ejerciciosbucles;
 
 import java.util.Scanner;
 

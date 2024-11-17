@@ -6,7 +6,7 @@ de lado, utilizando para ello asteriscos (*). Por ejemplo, para n = 4:
 * 
 */
 
-package ud2.ejercicioschorra;
+package ud2.ejerciciosbucles;
 
 import java.util.Scanner;
 

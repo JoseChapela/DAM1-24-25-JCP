@@ -3,7 +3,7 @@
 Realiza una versión del programa anterior para que indique cuantes cifras tiene un número comprendido entre -99999 y 99999.
  */
 
-package ud2.ejercicioschorra;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 

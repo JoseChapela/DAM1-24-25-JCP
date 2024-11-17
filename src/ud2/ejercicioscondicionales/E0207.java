@@ -1,7 +1,7 @@
 /**E0207. Pedir tres números y mostrarlos ordenados de mayor a menor.
  */
 
-package ud2.ejercicioschorra;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 

@@ -1,7 +1,7 @@
 /**EP0217. Realiza el “juego de la suma”, que consiste en que aparezcan dos números
 aleatorios (comprendidos entre 1 y 99) que el usuario tiene que suma */
 
-package ud2.ejercicioschorra;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 

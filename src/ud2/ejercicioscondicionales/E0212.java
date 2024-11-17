@@ -3,7 +3,7 @@ tener en cuenta que existen meses con 28, 30 y 31 días (no se considerarán los
 bisiestos).
  */
 
-package ud2.ejercicioschorra;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 

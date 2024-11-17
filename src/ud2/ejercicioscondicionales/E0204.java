@@ -2,7 +2,7 @@
 número casi-cero que son aquellos, positivos o negativos, que se acercan a 0 por menos de 1
 unidad, aunque curiosamente el 0 no se considera un número casi-cero. Ejemplos de números */
 
-package ud2.ejercicioschorra;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 

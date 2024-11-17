@@ -1,6 +1,6 @@
 /** Pedir dos números y mostrarlos ordenados de forma decreciente. */
 
-package ud2.ejercicioschorra;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 

@@ -3,7 +3,7 @@ es par, si es positivo y su cuadrado. El proceso se repetirá hasta que el núme
 introducido sea 0.
  */
 
-package ud2.ejercicioschorra;
+package ud2.ejerciciosbucles;
 
 import java.util.Scanner;
 

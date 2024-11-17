@@ -5,7 +5,7 @@ fibonacci(n) = fibonacci(n-1) + fibonacci(n-2)
 fibonacci(1) = 1
 fibonacci(0) = 1 */
 
-package ud2.ejerciciosRecursivos;
+package ud2.ejerciciosrecursividad;
 
 public class E0412 {
     public static void main(String[] args) {

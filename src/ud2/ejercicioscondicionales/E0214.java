@@ -1,7 +1,7 @@
 /**E0214. Crear una aplicación que solicite al usuario una fecha (día, mes, año) y muestre la
 fecha correspondiente al día siguiente. */
 
-package ud2.ejercicioschorra;
+package ud2.ejercicioscondicionales;
 
 import java.util.Scanner;
 

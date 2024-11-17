@@ -4,7 +4,7 @@ negativo, y se mostrará: la suma de todas las edades introducidas, la media, el
 de alumnos y cuántos son mayores de edad.
  */
 
-package ud2.ejercicioschorra;
+package ud2.ejerciciosbucles;
 
 import java.util.Scanner;
 
