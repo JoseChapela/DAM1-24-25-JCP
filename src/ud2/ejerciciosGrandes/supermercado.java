@@ -11,109 +11,211 @@ Una vez finalizada la compra de un cliente el programa solicitará si se desea r
 
 package ud2.ejerciciosgrandes;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class supermercado {
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner (System.in);
-        int decision = 1, cantidad=1,moneda, pago;
-        double precio=0, total=0;
-        boolean repetir=true;
+        int decision = 13, cantidad=1,moneda;
+        double precio=0, total=0, aPagar=0;
 
-        while (repetir) {
-            System.out.println("Introducir unidades: (1)");
+        do {
+
+            System.out.println();
+            System.out.println("*************************");
+            System.out.println("Introducir producto: (1)");
             System.out.println("Conócenos: (2)");
             System.out.println("Ver cantidad total: (3)");
             System.out.println("Cobrar: (4)");
             System.out.println("Reiniciar: (5)");
             System.out.println("SALIR: (0)");
-            decision = sc.nextInt();
-            repetir = decision != 0;
+            System.out.println("*************************");
+            System.out.println();
+
+            try { decision = sc.nextInt();}
+            catch (InputMismatchException e) {
+                System.out.println("Entrada no recogida");
+                System.out.println(e.toString());
+                System.out.println();
+                sc.nextLine();
+                continue;
+
+            }
+           
+            System.out.println();
                        
             switch (decision) {
-                case 1: System.out.println("Introduce el precio del producto:");
-                        precio = sc.nextDouble();
-                        System.out.println("Introduce cantidad de unidades");
-                        cantidad = sc.nextInt();
+                case 1: do {
+                            System.out.println("Introduce el precio del producto:");
+                            try {precio = sc.nextDouble();}
+                            catch (InputMismatchException e) {
+                                System.out.println("Entrada no recogida");
+                                System.out.println(e.toString());
+                                System.out.println();
+                                sc.nextLine();
+                                continue;
+                
+                            }
+                            System.out.println();
+
+                            System.out.println("Introduce cantidad de unidades");
+                            try {cantidad = sc.nextInt();}
+                            catch (InputMismatchException e) {
+                                System.out.println("Entrada no recogida");
+                                System.out.println(e.toString());
+                                System.out.println();
+                                sc.nextLine();
+                                continue;
+                
+                            }
+                            System.out.println();
+                            if (precio <= 0 || cantidad  <= 0)
+                            System.out.println("Precio y cantidad tiene que tener un valor mayor que 0 \n");
+
+                        } while (precio <= 0 || cantidad  <= 0);
+                        
+                        total += (precio*cantidad);
                     
                     break;
 
-                case 2: System.out.println("Aún no actualizado esta página. \nPerdón por las molestias \n");
+                case 2: System.out.println("Aún no hemos actualizado esta página");
+                        System.out.println("Estate pendiente de nuevas actualizaciones");
+                        System.out.println();
                     
                     break;
 
-                case 3: System.out.printf("\nEl total son: %.2f euros \n", total);
+                case 3: System.out.println("*****************************");
+                         System.out.printf("El total son: %.2f euros \n", total);
+                         System.out.println("*****************************");
+                         System.out.println();
                     
                     break;
 
                 case 4: 
-                        System.out.println("En efectivo (0) o tarjeta(1) ?");
-                        moneda = sc.nextInt();
+                        do {
+                            System.out.println("En efectivo (0) o tarjeta(1) ?");
+                            try {moneda = sc.nextInt();}
+                            catch (InputMismatchException e) {
+                                System.out.println("Entrada no recogida");
+                                System.out.println(e.toString());
+                                System.out.println();
+                                sc.nextLine();
+                                moneda = 13;
+                                continue;
+                
+                            }
+                            System.out.println();
 
-                        switch (moneda) {
+                            switch (moneda) {
 
-                            case 0: System.out.println("Introduzca cantidad con la que va a pagar: ");
-                                    pago = sc.nextInt();
+                                case 0: do {
+                                            System.out.println("Introduzca cantidad con la que va a pagar: ");
+                                            try {aPagar = sc.nextDouble();}
+                                            catch (InputMismatchException e) {
+                                                System.out.println("Entrada no recogida");
+                                                System.out.println(e.toString());
+                                                System.out.println();
+                                                sc.nextLine();
+                                                continue;
+                                
+                                            }
+                                        }while (aPagar <= 0);
+                                        System.out.println();
 
-                                    if (pago<total) {
-                                        System.out.println("Cantidad insuficiente");
-                                        
-                                    } else {
-                                        System.out.println(aDevolver(total, pago));
-                        
-                                    }
-                                break;
-                            case 1: System.out.println("Procesado");
+                                        if (aPagar<total) {
+                                            System.out.println("Cantidad insuficiente");
+                                            System.out.println();
+                                            
+                                        } else {
+                                            System.out.println(aDevolver(total, aPagar));
+                                            System.out.println();
+                            
+                                        }
+                                    break;
 
-                                break;
-                            default:
-                                break;
-                        }
-                    
-                    break;
+                                case 1: System.out.println("Procesado");
+                                        System.out.println();
+
+                                    break;
+
+                                default: System.out.println("RESPUESTA FUERA DE RANGO \nPOR FAVOR LEA LAS INSTRUCCIONES Y VUELVA A ELEGIR");
+                                        System.out.println();
+
+                                    break;
+
+                            }
+
+                        } while (moneda > 1 || moneda <0);
+
+                        do {
+                            System.out.println("Desea realizar otra compra?");
+                            System.out.println("Sí (1)");
+                            System.out.println("No (0)");
+                            try {decision = sc.nextInt();}
+                            catch (InputMismatchException e) {
+                                System.out.println("Entrada no recogida");
+                                System.out.println(e.toString());
+                                System.out.println();
+                                sc.nextLine();
+                                decision = 13;
+                                continue;
+                
+                            }
+                            System.out.println();
+                        } while (decision != 0 && decision != 1);
 
                 case 5: total = precio = cantidad = 0;
 
                     break;
 
-                case 0: //salir
+                case 0: 
+
+                    break;
             
                 default: System.out.println("RESPUESTA FUERA DE RANGO \nPOR FAVOR LEA LAS INSTRUCCIONES Y VUELVA A ELEGIR");
+                            System.out.println();
+
                     break;
             }
-            total += (precio*cantidad);
-        }
 
-        System.out.println("GRACIAS POR VISITARNOS");
+        } while (decision !=0);
+
+        System.out.println("GRACIAS POR SU VISITA");
+        System.out.println("PROGRAMA CERRADO");
         sc.close();
     }
 
-    public static String aDevolver (double precio, double dinero) {
+    public static String aDevolver (double total, double aPagar) {
 
-        double billete500, billete200, billete100, billete50, billete20, billete10, billete5, moneda2, moneda1, centimo;
+        int billete500, billete200, billete100, billete50, billete20, billete10, billete5, moneda2, moneda1, centimo, precioEntero;
+        double precioReal = aPagar - total;
+        precioEntero = (int)precioReal;
+        centimo = (int)(Math.round((precioReal-precioEntero)*100));
 
-        billete500 = precio/500;
-        precio %= 500;
-        billete200 = precio/200;
-        precio %= 200;
-        billete100 = precio/100;
-        precio %= 100;
-        billete50 = precio/50;
-        precio %= 50;
-        billete20 = precio/20;
-        precio %= 20;
-        billete10 = precio/10;
-        precio %= 10;
-        billete5 = precio/5;
-        precio %= 5;
-        moneda2 = precio/2;
-        precio %= 2;
-        moneda1 = precio;
-        centimo = precio*10;
+        billete500 = precioEntero/500;
+        precioEntero %= 500;
+        billete200 = precioEntero/200;
+        precioEntero %= 200;
+        billete100 = precioEntero/100;
+        precioEntero %= 100;
+        billete50 = precioEntero/50;
+        precioEntero %= 50;
+        billete20 = precioEntero/20;
+        precioEntero %= 20;
+        billete10 = precioEntero/10;
+        precioEntero %= 10;
+        billete5 = precioEntero/5;
+        precioEntero %= 5;
+        moneda2 = precioEntero/2;
+        precioEntero %= 2;
+        moneda1 = precioEntero;
 
-        return String.format("Serán: \n %.0f Billetes de 500 \n %.0f Billetes de 200 \n %.0f Billetes de 100 \n %.0f Billetes de 50 \n %.0f Billetes de 20 \n %.0f Billetes de 10 \n %.0f Billetes de 5 \n %.0f Monedas de 2 euros  \n %.0f Monedas de 1 euro \n %.2f céntimos", billete500, billete200, billete100, billete50, billete20, billete10, billete5, moneda2, moneda1, centimo);
+        return String.format("Serán: \n %d Billetes de 500 \n %d Billetes de 200 \n %d Billetes de 100 \n %d Billetes de 50 \n %d Billetes de 20 \n %d Billetes de 10 \n %d Billetes de 5 \n %d Monedas de 2 euros  \n %d Monedas de 1 euro \n %d céntimos \n", billete500, billete200, billete100, billete50, billete20, billete10, billete5, moneda2, moneda1, centimo);
 
     }
+
 
 }
