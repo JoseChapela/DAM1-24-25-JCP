@@ -2,12 +2,12 @@ package ud2.ejerciciosgrandes;
 
 import java.util.Scanner;
 
-public class calculadoraHumana {
-
+public class CalculadoraHumana {
+   
     static final int OPERANDO_MAX = 20, RESULTADO_MAX = 200;
-
+    
     public static void main(String[] args) {
-
+    
         final int NUM_OPERACIONES = 7;
 
         int num1, num2, resultado, respuesta, aciertos = 0, fallos = 0;
