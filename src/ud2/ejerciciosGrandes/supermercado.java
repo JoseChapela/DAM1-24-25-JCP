@@ -191,28 +191,40 @@ public class Supermercado {
 
         int billete500, billete200, billete100, billete50, billete20, billete10, billete5, moneda2, moneda1, centimo, precioEntero;
         double precioReal = aPagar - total;
+        String linea = "";
         precioEntero = (int)precioReal;
         centimo = (int)(Math.round((precioReal-precioEntero)*100));
 
         billete500 = precioEntero/500;
         precioEntero %= 500;
+        linea += billete500 == 0? "" : billete500+" Billetes de 500 \n";
         billete200 = precioEntero/200;
         precioEntero %= 200;
+        linea += billete200 == 0? "" : billete200+" Billetes de 200\n";
         billete100 = precioEntero/100;
         precioEntero %= 100;
+        linea += billete100 == 0? "" : billete100+" Billetes de 100\n";
         billete50 = precioEntero/50;
         precioEntero %= 50;
+        linea += billete50 == 0? "" : billete50+" Billetes de 50\n";
         billete20 = precioEntero/20;
         precioEntero %= 20;
+        linea += billete20 == 0? "" : billete20+" Billetes de 20\n";
         billete10 = precioEntero/10;
         precioEntero %= 10;
+        linea += billete10 == 0? "" : billete10+" Billetes de 10\n";
         billete5 = precioEntero/5;
         precioEntero %= 5;
+        linea += billete5 == 0? "" : billete5+" Billetes de 5\n";
         moneda2 = precioEntero/2;
         precioEntero %= 2;
+        linea += moneda2 == 0? "" : moneda2+" Monedas de 2 euros\n";
         moneda1 = precioEntero;
+        linea += moneda1 == 0? "" : moneda1+" Monedas de 1 euros\n";
 
-        return String.format("Serán: \n %d Billetes de 500 \n %d Billetes de 200 \n %d Billetes de 100 \n %d Billetes de 50 \n %d Billetes de 20 \n %d Billetes de 10 \n %d Billetes de 5 \n %d Monedas de 2 euros  \n %d Monedas de 1 euro \n %d céntimos \n", billete500, billete200, billete100, billete50, billete20, billete10, billete5, moneda2, moneda1, centimo);
+        linea += centimo + " centimos\n";
+
+        return String.format("Serán: \n \n"+linea);
 
     }
 
