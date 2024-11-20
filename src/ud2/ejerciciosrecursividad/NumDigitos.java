@@ -8,17 +8,17 @@ public class NumDigitos {
         int n = 12345;
 
         System.out.println("NUMERO DE DIGITOS DE UN NÚMERO ENTERO");
-        System.out.println(NumDigitos(n));
+        System.out.println(numDigitos(n));
         
     }
 
-    public static int NumDigitos (int n) {
+    public static int numDigitos (int n) {
 
         int m = 1;
 
         if (n/10 == 0) return 1;
 
-        return m += NumDigitos (n/10);
+        return m += numDigitos (n/10);
     }
     
 }
