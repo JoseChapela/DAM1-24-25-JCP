@@ -1,5 +1,6 @@
 package ud2.ejerciciosgrandes;
 
+import java.time.LocalTime;
 import java.util.Scanner;
 
 public class CalculadoraHumana {
@@ -8,24 +9,26 @@ public class CalculadoraHumana {
     
     public static void main(String[] args) {
     
-        final int NUM_OPERACIONES = 7;
+        final int NUM_OPERACIONES = 7, NUM_FALLOS = 3, SEC_MAX= 60;
 
-        int num1, num2, resultado, respuesta, aciertos = 0, fallos = 0;
+        int num1, num2, resultado, respuesta, aciertos = 0, fallos = 0, secInicial;
         char signo;
 
         Scanner sc = new Scanner(System.in);
 
+        num1 = numeroRandom(OPERANDO_MAX);
+        secInicial = LocalTime.now().getSecond();
+
         System.out.println("CALCULADORA HUMANA");
 
-        num1 = numeroRandom(OPERANDO_MAX);
-
-        for (int i = 0; i < NUM_OPERACIONES ; i++) {
+        do{
             
             do {
                 
                 num2 = numeroRandom(OPERANDO_MAX);
                 signo = signoAleatorio();
                 resultado = operation(num1, num2, signo);
+
             } while (resultado > RESULTADO_MAX || resultado < 0);
 
             System.out.println("******************************");
@@ -40,18 +43,28 @@ public class CalculadoraHumana {
 
                 aciertos++;
                 System.out.println("HAS ACERTADO");
-                System.out.println("Llevas acertados "+aciertos);
+                
 
             } else {
 
                 fallos++;
                 System.out.println("HAS FALLADO");
-                System.out.println("Llevas fallados "+fallos);
+                
 
             }
+            System.out.println("Llevas acertados "+aciertos);
+            System.out.println("Llevas fallados "+fallos);
 
-        }
+        } while (fallos < NUM_FALLOS-1 && fallos+aciertos < NUM_OPERACIONES && LocalTime.now().getSecond() - secInicial < SEC_MAX );
+       
         sc.close();
+
+        System.out.println();
+        System.out.println("*********************************");
+        System.out.println("BUEN INTENTO");
+        System.out.println();
+        System.out.println("Tu número total de aciertos ha sido: "+aciertos);
+        System.out.println("*********************************");
 
     }
 
