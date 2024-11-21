@@ -2,6 +2,10 @@
 
 package ud2.jcpexamen;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.Test;
+
 public class ChiclesDeRegalo {
     public static void main(String[] args) {
 
@@ -25,6 +29,16 @@ public class ChiclesDeRegalo {
         totalChicles += chiclesComprados;
 
         return totalChicles;
+    }
+
+    @Test
+    public void ChiclesRegaloTest() {
+        assertEquals(31, totalChicles(25, 5, 1));
+        assertEquals(6, totalChicles(5, 5, 1));
+        assertEquals(111, totalChicles(100, 10, 1));
+        assertEquals(100, totalChicles(100, 0, 0));
+        assertEquals(-1, totalChicles(20, 2, 5));
+        assertEquals(-1, totalChicles(10, -1, 0));
     }
 
 }
