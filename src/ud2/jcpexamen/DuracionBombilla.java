@@ -52,4 +52,5 @@ public class DuracionBombilla {
         assertEquals("ENCENDIDOS + HORAS", causaFinBombilla(1000, 100, 10));
     }
 
+    
 }
