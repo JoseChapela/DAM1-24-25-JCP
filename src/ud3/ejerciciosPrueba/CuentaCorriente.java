@@ -12,8 +12,10 @@ public class CuentaCorriente  {
 
     private String dni;
     private String nombre;
-    private double saldo = 0;
+    private double saldo;
+    private static String banco;
 
+    //CONSTRUCTORES__________________________________
 
     CuentaCorriente (String dni, String nombre) {
 
@@ -22,6 +24,10 @@ public class CuentaCorriente  {
         
     }
 
+    //METODOS________________________________________
+
+    
+    
     public void sacarDinero (int cantidad){
 
         if (this.saldo >= cantidad){
@@ -45,6 +51,34 @@ public class CuentaCorriente  {
 
         return this.saldo;
 
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public static String getBanco() {
+        return banco;
+    }
+
+    public static void setBanco(String banco) {
+        CuentaCorriente.banco = banco;
     }
 
 }
