@@ -1,19 +1,18 @@
 package ud3.ejerciciosPrueba;
 
-import ud3.ejercicios.Calendario;
+import ud3.ejercicios.Punto;
 
 public class Prueba { 
     public static void main(String[] args) {
 
-        int anho = -1;
-        int mes = 12;
-        int dia = 31;
-        int dia2 = 31;
+        double x = -1;
+        double y = 0;
+        double x2 = 3;
+        double y2 = 0;
 
-        Calendario calendar = new Calendario (anho, mes, dia);
-        calendar.mostrar();          
-        calendar.incrementarAnho(1);
-        calendar.mostrar();
-
+        Punto punto = new Punto (x, y);
+        Punto punto2 = new Punto (x2, y2);
+       
+        System.out.println( punto.distanciaEuclidea(punto2));
     }
 }
