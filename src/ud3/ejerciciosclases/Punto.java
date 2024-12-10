@@ -7,7 +7,7 @@ double distanciaEuclidea(Punto otro): calcula y devuelve la distancia euclidea e
 void muestra(): muestra por consola la información relativa al punto. Ejemplo: (1.5, 4.6)
  */
 
-package ud3.ejercicios;
+package ud3.ejerciciosclases;
 
 public class Punto {
 

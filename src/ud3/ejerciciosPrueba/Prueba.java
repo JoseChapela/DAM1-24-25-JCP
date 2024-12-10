@@ -1,6 +1,6 @@
 package ud3.ejerciciosPrueba;
 
-import ud3.ejercicios.Punto;
+import ud3.ejerciciosclases.Punto;
 
 public class Prueba { 
     public static void main(String[] args) {

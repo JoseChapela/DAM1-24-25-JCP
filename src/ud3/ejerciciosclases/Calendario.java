@@ -9,7 +9,7 @@ boolean iguales(Calendario otraFecha): que determina si la fecha invocante y la 
 Por simplicidad, solo tendremos en consideración que existen meses con distinto número de días, pero no tendremos en cuenta los años bisiestos.
  */
 
-package ud3.ejercicios;
+package ud3.ejerciciosclases;
 
 public class Calendario {
 
