@@ -1,9 +1,9 @@
 package personal;
 
 public class ANIM {
-    public static void main(String[] args) throws InterruptedException {
+    public static void gusano () {
 
-        final int x = 10;
+        final int x = 5;
         int i = 0;
         
         while (i<x) {
@@ -17,7 +17,12 @@ public class ANIM {
             System.out.println(hop+"          *                                                     *                           ");
             System.out.println(hop+"            * * * * * * * * * * * * * * * * * * * * * * * * * *                             ");
 
-            Thread.sleep(400);
+            try {
+                Thread.sleep(400);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
 
             System.out.println("\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n");
         
@@ -28,7 +33,12 @@ public class ANIM {
             System.out.println(hop+"              *                           * * * * * *           *                     ");
             System.out.println(hop+"                * * * * * * * * * * * * *             * * * * *                             ");
 
-            Thread.sleep(400);
+            try {
+                Thread.sleep(400);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
 
             System.out.println("\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n");
 
@@ -43,7 +53,12 @@ public class ANIM {
             System.out.println(hop+"                  *                 * * * *       *             *                           ");
             System.out.println(hop+"                    * * * * * * * *                 * * * * * *                             ");
 
-            Thread.sleep(400);
+            try {
+                Thread.sleep(400);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
 
             System.out.println("\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n");
 
@@ -58,7 +73,12 @@ public class ANIM {
             System.out.println(hop+"                        *           * * * *       *             *                                   ");
             System.out.println(hop+"                          * * * * *                 * * * * * *                                     ");
 
-            Thread.sleep(400);
+            try {
+                Thread.sleep(400);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
 
             System.out.println("\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n");
 
@@ -73,7 +93,12 @@ public class ANIM {
             System.out.println(hop+"                        *           * *     * *                     *                                   ");
             System.out.println(hop+"                          * * * * *             * * * * * * * * * *                                     ");
 
-            Thread.sleep(400);
+            try {
+                Thread.sleep(400);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
 
             System.out.println("\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n");
 
@@ -88,7 +113,12 @@ public class ANIM {
             System.out.println(hop+"                        *         * * * * * * * *                     *                                   ");
             System.out.println(hop+"                          * * * *                 * * * * * * * * * *                                     ");
 
-            Thread.sleep(400);
+            try {
+                Thread.sleep(400);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
 
             System.out.println("\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n");
 
