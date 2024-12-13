@@ -9,12 +9,12 @@ Si el método de pago elegido es “en efectivo”, entonces se solicitará el i
 Una vez finalizada la compra de un cliente el programa solicitará si se desea repetir el proceso para un nuevo cliente.
  */
 
-package ud2.ejerciciosgrandes;
+package ud2.ejerciciosGrandes;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Supermercado {
+public class supermercado {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner (System.in);

@@ -1,9 +1,9 @@
-package ud2.ejerciciosgrandes;
+package ud2.ejerciciosGrandes;
 
 import java.time.LocalTime;
 import java.util.Scanner;
 
-public class CalculadoraHumana {
+public class calculadoraHumana {
    
     static final int OPERANDO_MAX = 20, RESULTADO_MAX = 200;
     
