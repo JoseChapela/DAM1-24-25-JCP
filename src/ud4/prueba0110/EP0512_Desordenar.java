@@ -1,4 +1,4 @@
-package ud4.2025-01-10;
+package ud4.prueba0110;
 
 import java.util.Random;
 

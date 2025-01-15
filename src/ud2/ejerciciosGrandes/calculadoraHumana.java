@@ -1,4 +1,4 @@
-package ud2.ejerciciosGrandes;
+package ud2.ejerciciosgrandes;
 
 import java.time.LocalTime;
 import java.util.Scanner;

@@ -8,7 +8,7 @@ static int excesoVelocidade(double distancia, int tempo, int limite);
  */
 
 
-package ud2.ejerciciosGrandes;
+package ud2.ejerciciosgrandes;
 
 public class Radar {
 

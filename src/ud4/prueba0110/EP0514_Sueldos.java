@@ -1,7 +1,6 @@
-package 2025-01-10;
+package ud4.prueba0110;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class EP0514_Sueldos {
@@ -43,6 +42,7 @@ public class EP0514_Sueldos {
 
         System.out.println("MÍNIMO = " + minimo);
 
+        sc.close();
 
         
     }
