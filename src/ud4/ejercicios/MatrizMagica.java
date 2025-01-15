@@ -27,8 +27,6 @@ public class MatrizMagica {
                 t[k++] = sc.nextInt();
             }
         }
-
-        k = 0;
         
         for ( int i = 0; i < NUM_ELEMENTOS; i++) {
 
@@ -37,15 +35,18 @@ public class MatrizMagica {
 
         for (int j = 0; j < t.length; j += NUM_ELEMENTOS) {
 
+
             for (int i = 0; i < NUM_ELEMENTOS; i++) {
 
                 sumaRows += t[i+j];
             } 
+
             if (sumaRows != referencia) {
 
                 esMagico = false;
                 break;
-            }          
+            }  
+            sumaRows = 0;        
         }
 
         if (esMagico = true) {
@@ -60,7 +61,8 @@ public class MatrizMagica {
 
                     esMagico = false;
                     break;
-                }         
+                }
+                sumaCols = 0;     
                         
             }
         }

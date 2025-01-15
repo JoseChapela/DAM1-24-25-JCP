@@ -18,7 +18,7 @@ public class SumaElementos {
     public static void main(String[] args) {
         
         int[] t = {10, 1, 5, 8, 9, 2};
-        int[] resultado = suma( t, 3);
+        int[] resultado = suma( t, 2);
         System.out.println(Arrays.toString(resultado));
     }
 
