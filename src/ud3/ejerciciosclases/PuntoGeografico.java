@@ -4,6 +4,7 @@ public class PuntoGeografico {
 
     private double latitud;
     private double longitud;
+    @SuppressWarnings("unused")
     private String name;
 
     //CONSTRUCTORES

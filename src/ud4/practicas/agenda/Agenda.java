@@ -50,16 +50,23 @@ public class Agenda {
             switch (entrada) {
 
                 case 1:
-                    System.out.println("Introduce el nombre:");
-                    String nombre = sc.next();
-                    System.out.println("Introduce los apellidos:");
-                    String apellidos = sc.next();
-                    System.out.println("Introduce el teléfono:");
-                    int telefono = sc.nextInt();
-                    System.out.println("Introduce el email:");
-                    String email = sc.next();
-                    Contacto persona = new Contacto(nombre, apellidos, telefono, email);
-                    agenda = newContact(persona, agenda);
+                    try {
+                        System.out.println("Introduce el nombre:");
+                        String nombre = sc.next();
+                        System.out.println("Introduce los apellidos:");
+                        String apellidos = sc.next();
+                        System.out.println("Introduce el teléfono:");
+                        int telefono = sc.nextInt();
+                        System.out.println("Introduce el email:");
+                        String email = sc.next();
+                        Contacto persona = new Contacto(nombre, apellidos, telefono, email);
+                        agenda = newContact(persona, agenda);
+                    } catch (Exception e) {
+                        System.out.println();
+                        System.out.println("Datos no válidos");
+                        sc.next();
+                        continue;
+                    }
                     break;
 
                 case 2:
@@ -68,9 +75,23 @@ public class Agenda {
 
                 case 3:
                     System.out.println("Introduce el número de contacto a eliminar:");
-                    int num = sc.nextInt();
-
-                        agenda = deleteContact(num, agenda);   
+                    int num = 0;
+                    
+                    try {
+                        num = sc.nextInt();
+                    } catch (Exception e) {
+                        System.out.println();
+                        System.out.println("Carácter no válido");
+                        sc.next();
+                        continue;
+                    }
+                
+                    try {
+                        agenda = deleteContact(num, agenda);
+                    } catch (Exception e) {
+                        System.out.println();
+                        System.out.println(e.getMessage());
+                    }  
                     break;
 
                 case 4:
@@ -92,6 +113,8 @@ public class Agenda {
                     break;
             }
         }
+
+        sc.close();
     }
 
     private static void menu() {
@@ -133,7 +156,7 @@ public class Agenda {
 
         if (num < 1 || num > agenda.length) {
 
-            throw new IllegalArgumentException("Número de contacto no válido");
+            throw new IllegalArgumentException("Número de contacto no existente");
         }
 
         Contacto[] aux = new Contacto[agenda.length-1];

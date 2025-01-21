@@ -5,10 +5,15 @@ import java.time.LocalDateTime;
 public class User {
 
     private String username;
+    @SuppressWarnings("unused")
     private String password;
+    @SuppressWarnings("unused")
     private String email;
+    @SuppressWarnings("unused")
     private LocalDateTime createdAt;
+    @SuppressWarnings("unused")
     private LocalDateTime lastLogin;
+    @SuppressWarnings("unused")
     private boolean enabled;
     
     //CONSTRUCTORES

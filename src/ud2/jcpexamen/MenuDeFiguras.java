@@ -106,6 +106,8 @@ public class MenuDeFiguras {
             System.out.println("");
         }
 
+        sc.close();
+
     }
 
     public static void rectangulo() {
@@ -150,6 +152,7 @@ public class MenuDeFiguras {
             }
             System.out.println("");
         }
+        sc.close();
 
     }
 

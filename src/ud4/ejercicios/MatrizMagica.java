@@ -74,6 +74,7 @@ public class MatrizMagica {
 
             System.out.println("No es magico");
         }
+        sc.close();
 
     }
     

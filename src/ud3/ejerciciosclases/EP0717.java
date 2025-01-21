@@ -1,7 +1,5 @@
 package ud3.ejerciciosclases;
 
-import static org.junit.jupiter.api.DynamicTest.stream;
-
 import ud3.ejerciciosclases.Jugador.Position;
 
 public class EP0717 {
