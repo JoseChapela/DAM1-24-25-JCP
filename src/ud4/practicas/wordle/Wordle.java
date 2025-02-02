@@ -47,8 +47,6 @@ public class Wordle {
         String entrada = "";
 
         Scanner sc = new Scanner(System.in);
-
-        Palabra libreria
         
         //BIENVENIDA
         System.out.println("****************");
