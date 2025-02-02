@@ -54,12 +54,29 @@ public class Matricula2 {
     private static String incrementarLetras (String matricula) {
 
         char[] letras = matricula.substring(4, 7).toCharArray();
+        String letrasValidas = "BCDFGHJKLMNPRSTUVWXYZ";
 
-        if (letras[2] != 'Z') letras[2] = letrasMatricula[letrasMatricula.toString().indexOf(letras[2] + 1)];
+        if (letras[2] != 'Z') letras[2] = letrasValidas.charAt(letrasValidas.indexOf(letras[2]) + 1);
 
-        else  if (letras[1] != 'Z') letras[1] = letrasMatricula[letrasMatricula.toString().indexOf(letras[1] + 1)];
+        else  if (letras[1] != 'Z') {
 
-        else  if (letras[0] != 'Z') letras[0] = letrasMatricula[letrasMatricula.toString().indexOf(letras[0] + 1)];
+            letras[1] = letrasValidas.charAt(letrasValidas.indexOf(letras[1]) + 1);
+            letras [2] = 'B';
+        }
+
+        else  if (letras[0] != 'Z') {
+
+            letras[0] = letrasValidas.charAt(letrasValidas.indexOf(letras[0]) + 1);
+            letras [1] = 'B';
+            letras [2] = 'B';
+        }
+
+        else {
+
+            letras [0] = 'B';
+            letras [1] = 'B';
+            letras [2] = 'B';
+        }
 
         String nuevaMatricula = "";
 
