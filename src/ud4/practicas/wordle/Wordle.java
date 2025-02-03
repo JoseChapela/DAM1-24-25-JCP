@@ -33,6 +33,7 @@ Constructores, setters e getters axeitados.
 
 package ud4.practicas.wordle;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Wordle {
@@ -54,15 +55,25 @@ public class Wordle {
         System.out.println("");
         
         //MOSTRAR CASILLAS
-        showcase();
+        showcase(NUM_LETRAS);
 
         //PANTALLA DE JUEGO
 
         while (contador < NUM_INTENTOS && !entrada.equals(palabraOculta)) {
 
-            System.out.println("Intento " + (contador+1) + "/" + NUM_INTENTOS + ": ");
-            entrada = sc.nextLine();
-            contador++;
+            do {
+
+                System.out.println();
+                System.out.println("Intento " + (contador+1) + "/" + NUM_INTENTOS + ": ");
+                entrada = sc.nextLine();
+                System.out.println();
+
+                if (entrada.length() != NUM_LETRAS) System.out.println("La longitud de caracteres no coincide");
+
+            } while (entrada.length() != NUM_LETRAS);
+
+            letrasAcertadas(entrada, palabraOculta);
+            contador++;                  
         }
 
         if (entrada.equals(palabraOculta)) {
@@ -75,9 +86,53 @@ public class Wordle {
         
     }
 
-    private static void showcase() {
+    private static char[] letrasErroneas(String entrada, String palabraOculta) {
 
+        char[] caracteresErrados = new char[0];
+        char[] entradaLetras = entrada.toCharArray();
+        char[] palabraOcultaLetras = palabraOculta.toCharArray();
+        for (int i = 0; i < palabraOculta.length(); i++) {
+            for (int j = 0; j < palabraOculta.length(); j++) {
 
+                if (i != j && palabraOcultaLetras[i] == entradaLetras[j]) {
+
+                    caracteresErrados = Arrays.copyOf(caracteresErrados, caracteresErrados.length + 1);
+                    caracteresErrados[caracteresErrados.length - 1] = palabraOcultaLetras[i];
+                    palabraOcultaLetras[i] = '0';
+                    entradaLetras[j] = '0';
+                    break;
+                }
+            }
+        }
+        
+        return caracteresErrados;
+    }
+
+    private static int[] letrasAcertadas (String entrada, String palabraOculta) {
+
+        int[] caracteresAcertados = new int[0];
+        for (int i = 0; i < palabraOculta.length(); i++) {
+
+            if (palabraOculta.charAt(i) == entrada.charAt(i)) {
+
+                caracteresAcertados = Arrays.copyOf(caracteresAcertados, caracteresAcertados.length + 1);
+                caracteresAcertados[caracteresAcertados.length - 1] = i;
+            }
+        }
+        return caracteresAcertados;            
+    }
+
+    private static void showcase( int numLetras) {
+
+        for (int i = 0; i < numLetras; i++) {
+
+            System.out.println("_ ");
+        }
+    }
+
+    private static mostrarTablero () {
+
+        
     }
     
 }
