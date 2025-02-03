@@ -72,7 +72,7 @@ public class Wordle {
 
             } while (entrada.length() != NUM_LETRAS);
 
-            letrasAcertadas(entrada, palabraOculta);
+            mostrarTablero(palabraOculta, entrada);
             contador++;                  
         }
 
@@ -83,21 +83,22 @@ public class Wordle {
 
             System.out.println("HAS PERDIDO");
         }
+
+        sc.close();
         
     }
 
-    private static char[] letrasErroneas(String entrada, String palabraOculta) {
+    private static boolean[] letrasErroneas(String entrada, String palabraOculta) {
 
-        char[] caracteresErrados = new char[0];
         char[] entradaLetras = entrada.toCharArray();
         char[] palabraOcultaLetras = palabraOculta.toCharArray();
+        boolean[] caracteresErrados = new boolean[palabraOculta.length()];
         for (int i = 0; i < palabraOculta.length(); i++) {
             for (int j = 0; j < palabraOculta.length(); j++) {
 
                 if (i != j && palabraOcultaLetras[i] == entradaLetras[j]) {
 
-                    caracteresErrados = Arrays.copyOf(caracteresErrados, caracteresErrados.length + 1);
-                    caracteresErrados[caracteresErrados.length - 1] = palabraOcultaLetras[i];
+                    caracteresErrados[j] = true;
                     palabraOcultaLetras[i] = '0';
                     entradaLetras[j] = '0';
                     break;
@@ -108,31 +109,42 @@ public class Wordle {
         return caracteresErrados;
     }
 
-    private static int[] letrasAcertadas (String entrada, String palabraOculta) {
+    private static boolean[] letrasAcertadas (String entrada, String palabraOculta) {
 
-        int[] caracteresAcertados = new int[0];
+        boolean[] caracteresAcertados = new boolean[palabraOculta.length()];
         for (int i = 0; i < palabraOculta.length(); i++) {
 
-            if (palabraOculta.charAt(i) == entrada.charAt(i)) {
-
-                caracteresAcertados = Arrays.copyOf(caracteresAcertados, caracteresAcertados.length + 1);
-                caracteresAcertados[caracteresAcertados.length - 1] = i;
-            }
+            if (palabraOculta.charAt(i) == entrada.charAt(i)) caracteresAcertados[i] = true;
         }
+        
         return caracteresAcertados;            
     }
 
     private static void showcase( int numLetras) {
 
+        System.out.println();
         for (int i = 0; i < numLetras; i++) {
 
-            System.out.println("_ ");
+            System.out.print("  _  ");
         }
+        System.out.println();
     }
 
-    private static mostrarTablero () {
+    private static void mostrarTablero (String palabraOculta, String entrada) {
 
-        
+        char[] muestra = new char[palabraOculta.length()];
+        Arrays.fill(muestra, '_');
+        boolean[] caracteresErrados = letrasErroneas(entrada, palabraOculta);
+        boolean[] caracteresAcertados = letrasAcertadas(entrada, palabraOculta);
+        System.out.println();
+
+        for (int i = 0; i < muestra.length; i++) {
+
+            if (caracteresAcertados[i]) System.out.print("  " + palabraOculta.charAt(i) + "  ");
+            else if (caracteresErrados[i]) System.out.print(" <" + entrada.charAt(i) + "> ");
+            else System.out.print("  _  ");
+        }
+        System.out.println();
     }
     
 }
