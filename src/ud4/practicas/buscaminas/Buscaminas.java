@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Buscaminas {
 
-    static final int FILAS = 15;
+    static final int FILAS = 12;
     static final int COLUMNAS = 15;
-    static final int NUM_MINAS = 10;
+    static final int NUM_MINAS = 20;
     static boolean[][] tableroMinas = new boolean[FILAS][COLUMNAS];
     static char[][] tableroJuego = new char[FILAS][COLUMNAS];
     static int numMarcas = 0;
@@ -133,9 +133,9 @@ public class Buscaminas {
             try {
                 System.out.println("INTRODUCE COLUMNA");
                 columna = sc.nextInt();
-                if (columna < 0 || columna > FILAS - 1) {
+                if (columna < 0 || columna > COLUMNAS - 1) {
                     System.out.println();
-                    System.out.println("Fila fuera de rango");
+                    System.out.println("Columna fuera de rango");
                     System.out.println();
                     columna = -1;
                 }

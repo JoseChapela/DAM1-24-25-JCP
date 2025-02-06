@@ -140,8 +140,8 @@ public class Wordle {
 
         for (int i = 0; i < muestra.length; i++) {
 
-            if (caracteresAcertados[i]) System.out.print("  " + palabraOculta.charAt(i) + "  ");
-            else if (caracteresErrados[i]) System.out.print(" <" + entrada.charAt(i) + "> ");
+            if (caracteresAcertados[i]) System.out.print("  " + palabraOculta.toUpperCase().charAt(i) + "  ");
+            else if (caracteresErrados[i]) System.out.print(" <" + entrada.toUpperCase().charAt(i) + "> ");
             else System.out.print("  _  ");
         }
         System.out.println();

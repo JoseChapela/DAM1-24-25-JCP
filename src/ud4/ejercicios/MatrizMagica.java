@@ -49,7 +49,7 @@ public class MatrizMagica {
             sumaRows = 0;        
         }
 
-        if (esMagico = true) {
+        if (esMagico) {
 
             for (int i = 0; i < NUM_ELEMENTOS; i++) {
 
