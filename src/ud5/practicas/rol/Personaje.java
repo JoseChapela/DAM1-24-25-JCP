@@ -39,8 +39,8 @@ public class Personaje {
 
     public Personaje (String nombre, String raza, int fuerza, int agilidad, int constitucion) {
 
-        this(nombre, raza, fuerza, agilidad, constitucion, fuerza, agilidad, constitucion);
-        this.maxhp += constitucion;
+        this(nombre, raza, fuerza, agilidad, constitucion, 1, 0, 50 + constitucion);
+        
     }
 
     public Personaje (String nombre, String raza) {
@@ -70,6 +70,58 @@ public class Personaje {
     public String toString () {
 
         return String.format(this.nombre + "  (" + hp + "/" + maxhp + ")" );
+    }
+
+    public byte sumarExperiencia (int puntos) {
+
+        if (this.experiencia/1000 != (this.experiencia + puntos) / 1000) 
+            nivel += this.experiencia/1000 - (this.experiencia + puntos) / 1000 ;
+        this.experiencia += puntos;
+
+        return (byte)(this.experiencia/1000 - (this.experiencia + puntos) / 1000);
+    }
+
+    public void subirNivel () {
+
+        this.nivel++;
+        this.fuerza *= 1.05;
+        this.agilidad *= 1.05;
+        this.constitucion *= 1.05;
+    }
+
+    public void curar () {
+
+        if (this.hp < this.maxhp) 
+            this.hp = this.maxhp;
+        
+    }
+
+    public boolean perderVida (int puntos) {
+
+        this.hp -= puntos;
+        if (this.hp <= 0) return true;
+        return false;
+    }
+
+    public boolean estaVivo () {
+
+        if (this.hp > 0) return true;
+        return false;
+    }
+
+    public int atacar (Personaje enemigo) {
+
+        int ptsAtaque = (this.fuerza * intAleatorioEntre(1, 100)) - (enemigo.agilidad * intAleatorioEntre(1, 100));
+
+        if (ptsAtaque < 0) ptsAtaque = 0;
+        if (ptsAtaque > enemigo.hp) ptsAtaque = enemigo.hp;
+        enemigo.hp -= ptsAtaque;
+        this.experiencia += ptsAtaque;
+        return ptsAtaque;
+    }
+
+    public int getAgilidad() {
+        return agilidad;
     }
 
     //MÉTODOS PRIVADOS
