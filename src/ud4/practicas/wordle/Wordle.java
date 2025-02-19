@@ -42,9 +42,9 @@ public class Wordle {
         //DECLARACION DE VARIABLES
 
         final int NUM_INTENTOS = 6;
-        final int NUM_LETRAS = 5;
+        final int NUM_LETRAS = 7;
         int contador = 0;
-        String palabraOculta = "coche";
+        String palabraOculta = "palabra";
         String entrada = "";
 
         Scanner sc = new Scanner(System.in);
