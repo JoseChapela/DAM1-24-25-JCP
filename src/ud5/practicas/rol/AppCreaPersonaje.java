@@ -3,119 +3,123 @@ package ud5.practicas.rol;
 import java.util.Scanner;
 
 public class AppCreaPersonaje {
+
     public static void main(String[] args) {
         
-        crearPersonaje();
+        Scanner sc = new Scanner(System.in);
+        boolean flag = true;
+        Personaje p = null;
+
+        while (flag) {
+
+            try {
+
+                p = crearPersonaje();
+            } catch (Exception e) {
+
+                System.out.println("Has introducido algún valor inválido. Vuelve a intentarlo");
+                sc.next();
+                continue;
+            }
+
+            flag = false;
+        }
+
+        System.out.println();
+        System.out.println("Personaje creado");
+        System.out.println();
+        p.mostrar();
     }
-
-    static void crearPersonaje () {
-
-        Scanner sc = new Scanner (System.in);
-        String nombre;
-        String raza;
-        int fuerza;
-        int agilidad;
-        int constitucion;
-
-        Personaje p;
-
-        System.out.println();
-        System.out.println("CREA TU PROPIO PERSONAJE DE ROL");
-
-        System.out.println();
-        System.out.println("(En cuanto decidas no seguir manualmente, se pondrán los valores por defecto en lso atributos restantes) ");
-
-        nombre = leerNombre();
-
-        if (!RazaSiNo())
+    
+    static Personaje crearPersonaje() {
         
-            p = new Personaje(nombre);
-        else{
-
-            raza = leerRaza();
-            
-            if (!fisicosSiNo())
-
-                p = new Personaje(nombre, raza);
-
-            else{
-
-
-            }
-        } 
-    }
-
-    static boolean fisicosSiNo() {
-
         Scanner sc = new Scanner(System.in);
-        char respuesta = 'x';
-
-        while (respuesta != 's' || respuesta != 's' ) {
-
-            System.out.println();
-            System.out.println("(OPCIONAL)");
-            System.out.println("Introducir atributos físicos del personaje? ( s | n )");
-    
-            try {
-    
-                respuesta = sc.nextLine().toLowerCase().charAt(0);
-            } catch (Exception e) {
-    
-                sc.next();
-                continue;
-            }
-        }
-        return respuesta == 's';
-    }
-
-    static String leerRaza () {
-
-        Scanner sc = new Scanner(System.in);
-        String raza = "";
-
-        while (!raza.toUpperCase().matches("HUMANO|ELFO|ENANO|HOBBIT|ORCO|TROLL")) {
-
-            System.out.println();
-            System.out.println("Introduce la raza del personaje");
-            System.out.println("( HUMANO | ELFO | ENANO | HOBBIT | ORCO | TROLL )");
-            raza = sc.nextLine();
-        }
-
-        return raza;
-    }
-
-    static String leerNombre () {
-
-        Scanner sc = new Scanner(System.in);
+        String nombre, raza;
+        int fuerza, agilidad, constitucion, nivel, experiencia, maxhp;
+        boolean decision;
 
         System.out.println();
-        System.out.println("(OBLIGATORIO)");
-        System.out.println("Introduce el nombre: ");
-        return sc.nextLine();
+        System.out.println("*********************");
+        System.out.println("CREACIÓN DE PERSONAJE");
+        System.out.println("**********************");
+        System.out.println();
+        System.out.println("Todos los atributos deben ser positivos. (Experiencia puede ser 0)");
+        System.out.println();
+        System.out.println("Introduce nombre:");
+        nombre = sc.nextLine();
+        System.out.println();
+        System.out.println("Introduce raza:");
+        raza = sc.nextLine();
+
+        System.out.println();
+        System.out.println("Seguir con la creación manualmente? ( s | n )");
+        decision = leerDecision();
+        if (!decision) {
+
+            Personaje p = new Personaje(nombre, raza);
+            return p;
+        }
+
+        System.out.println();
+        System.out.println("Introduce fuerza:");
+        fuerza = sc.nextInt();
+        System.out.println();
+        System.out.println("Introduce agilidad:");
+        agilidad = sc.nextInt();
+        System.out.println();
+        System.out.println("Introduce constitucion:");
+        constitucion = sc.nextInt();
+
+        System.out.println();
+        System.out.println("Seguir con la creación manualmente? ( s | n )");
+        decision = leerDecision();
+        if (!decision) {
+
+            Personaje p = new Personaje(nombre, raza, fuerza, agilidad, constitucion);
+            return p;
+        }
+
+        System.out.println();
+        System.out.println("Introduce nivel");
+        nivel = sc.nextInt();
+        System.out.println();
+        System.out.println("Introduce experiencia");
+        experiencia = sc.nextInt();
+        System.out.println();
+        System.out.println("Introduce salud inicial");
+        maxhp = sc.nextInt();
+
+        Personaje p = new Personaje(nombre, raza, fuerza, agilidad, constitucion, nivel, experiencia, maxhp);
+        return p;
+    
+
     }
 
-    static boolean RazaSiNo () {
+    static boolean leerDecision () {
 
         Scanner sc = new Scanner(System.in);
-        char respuesta = 'x';
+        char entrada;
+        entrada = 'x';
+        while (entrada != 's' && entrada != 'n') {
 
-        while (respuesta != 's' || respuesta != 's' ) {
-
-            System.out.println();
-            System.out.println("(OPCIONAL)");
-            System.out.println("Introducir raza del personaje? ( s | n )");
-    
             try {
+
+                entrada = sc.nextLine().toLowerCase().charAt(0);
+            }
+            catch (Exception e) {
     
-                respuesta = sc.nextLine().toLowerCase().charAt(0);
-            } catch (Exception e) {
-    
+                System.out.println();
+                System.out.println("Entrada incorrecta - Valores válidos ->( s | n )");
                 sc.next();
-                continue;
+                entrada = 'x';
+            }
+            if (entrada != 's' && entrada != 'n') {
+
+                System.out.println();
+                System.out.println("Entrada incorrecta - Valores válidos ->( s | n )");
             }
         }
 
-        return respuesta == 's';
+        return entrada == 's';
     }
-    
 }
