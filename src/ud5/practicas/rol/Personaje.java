@@ -35,6 +35,7 @@ public class Personaje {
         this.nivel = nivel;
         this.experiencia = experiencia;
         this.maxhp = maxhp;
+        hp = maxhp;
     }
 
     public Personaje (String nombre, String raza, int fuerza, int agilidad, int constitucion) {
@@ -57,14 +58,16 @@ public class Personaje {
 
     public void mostrar () {
 
+        System.out.println();
         System.out.println("INFORMACIÓN DE PERSONAJE");
         System.out.println();
-        System.out.println("Nombre: " + this.nombre + "   Nvl" + this.nivel);
+        System.out.println("Nombre: " + this.nombre + "   Nvl: " + this.nivel);
         System.out.println("Raza: " + this.raza.toString());
         System.out.println("Fuerza: " + this.fuerza);
         System.out.println("Agilidad: " + this.agilidad);
         System.out.println("Constitucion: " + this.constitucion);
         System.out.println("Vida: " + hp + "/" + this.maxhp);
+        System.out.println();
     }
 
     public String toString () {
@@ -74,11 +77,15 @@ public class Personaje {
 
     public byte sumarExperiencia (int puntos) {
 
+        byte numNiveles = 0;
+
         if (this.experiencia/1000 != (this.experiencia + puntos) / 1000) 
-            nivel += this.experiencia/1000 - (this.experiencia + puntos) / 1000 ;
+            numNiveles = (byte)(this.experiencia/1000 - (this.experiencia + puntos) / 1000);
+
+        for (int i = 0; i < numNiveles; i++) subirNivel();
         this.experiencia += puntos;
 
-        return (byte)(this.experiencia/1000 - (this.experiencia + puntos) / 1000);
+        return numNiveles;
     }
 
     public void subirNivel () {
@@ -111,17 +118,28 @@ public class Personaje {
 
     public int atacar (Personaje enemigo) {
 
-        int ptsAtaque = (this.fuerza * intAleatorioEntre(1, 100)) - (enemigo.agilidad * intAleatorioEntre(1, 100));
+        int ptsAtaque = (this.fuerza + intAleatorioEntre(1, 100)) - (enemigo.agilidad + intAleatorioEntre(1, 100));
 
         if (ptsAtaque < 0) ptsAtaque = 0;
         if (ptsAtaque > enemigo.hp) ptsAtaque = enemigo.hp;
+
         enemigo.hp -= ptsAtaque;
-        this.experiencia += ptsAtaque;
+        sumarExperiencia(ptsAtaque);
+        enemigo.sumarExperiencia(ptsAtaque);
+        
         return ptsAtaque;
     }
 
     public int getAgilidad() {
         return agilidad;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     //MÉTODOS PRIVADOS
