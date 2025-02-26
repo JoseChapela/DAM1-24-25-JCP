@@ -3,7 +3,21 @@ package ud5.practicas.rol;
 public class Troll extends Monstruo {
     
     Troll(String nombre, int ataque, int defensa, int velocidad, int puntosVida) {
+            
+        super(nombre, ataque, defensa, velocidad, puntosVida);
+    }
+    
+    static Troll generarTroll() {
         
-        super(null, Personaje.intAleatorioEntre(60, 120), Personaje.intAleatorioEntre(50, 70), Personaje.intAleatorioEntre(20, 40), Personaje.intAleatorioEntre(100, 200));
+        Troll troll = new Troll (null, Personaje.intAleatorioEntre(30, 80), Personaje.intAleatorioEntre(30, 50), Personaje.intAleatorioEntre(30, 60), Personaje.intAleatorioEntre(30, 100));
+        return troll;
+    }
+
+    @Override
+    public String toString() {
+
+        String cad = "";
+        if ( getNombre() != "") cad = getNombre() + "-";
+        return cad + "Troll (" + getPuntosVida() + ")";
     }
 }
