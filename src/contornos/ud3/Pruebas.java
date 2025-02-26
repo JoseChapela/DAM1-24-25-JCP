@@ -33,7 +33,6 @@ public class Pruebas {
         assertEquals(true, esNumeroPerfecto(1));
         assertEquals(false, esNumeroPerfecto(3));
         assertEquals(false, esNumeroPerfecto(0));
-        assertEquals(, esNumeroPerfecto(4));
     }
 
     // Método que cuente cuántos número de un array de entrada son pares y cuántos

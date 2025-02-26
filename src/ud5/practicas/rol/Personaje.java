@@ -130,6 +130,19 @@ public class Personaje {
         return ptsAtaque;
     }
 
+    public int atacar (Monstruo m) {
+
+        int ptsAtaque = (this.fuerza + intAleatorioEntre(1, 100)) - (m.getDefensa() + intAleatorioEntre(1, 100));
+
+        if (ptsAtaque < 0) ptsAtaque = 0;
+        if (ptsAtaque > m.getPuntosVida()) ptsAtaque = m.getPuntosVida();
+
+        m.perderVida(ptsAtaque);
+        sumarExperiencia(ptsAtaque);
+        
+        return ptsAtaque;        
+    }
+
     public int getAgilidad() {
         return agilidad;
     }
@@ -144,7 +157,7 @@ public class Personaje {
 
     //MÉTODOS PRIVADOS
 
-    private static int intAleatorioEntre (int inicio, int fin) {
+    static int intAleatorioEntre (int inicio, int fin) {
 
         Random rnd = new Random();
         return rnd.nextInt(inicio, fin+1);
