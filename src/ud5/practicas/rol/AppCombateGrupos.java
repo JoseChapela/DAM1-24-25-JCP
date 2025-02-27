@@ -1,47 +1,90 @@
 package ud5.practicas.rol;
 
-import java.util.Arrays;
-
 public class AppCombateGrupos {
     public static void main(String[] args) {
-        
-    
 
-        int numGrupo1 = Personaje.intAleatorioEntre(3, 6);
-        int numGrupo2 = Personaje.intAleatorioEntre(3, 6);
-        boolean flag = false;
+        final int NUM_MIN_INVOLUCRADOS = 1;
+        final int NUM_MAX_INVOLUCRADOS = 2;
 
-        Personaje[] grupo1 = new Personaje[numGrupo1];
-        Personaje[] grupo2 = new Personaje[numGrupo2];
+        Personaje[] grupo1 = crearGrupo(NUM_MIN_INVOLUCRADOS, NUM_MAX_INVOLUCRADOS);
+        Personaje[] grupo2 = crearGrupo(NUM_MIN_INVOLUCRADOS, NUM_MAX_INVOLUCRADOS);
 
-        for (int i = 0; i < grupo1.length; i++) {
+        mostrarEquipos(grupo1, grupo2);
 
-            grupo1[i] = AppCreaPersonaje.crearPersonaje();
-        }
+        System.out.println();
+        System.out.println();
+        System.out.println("¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡FIGHT!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println();
+        System.out.println();
 
-        for (int i = 0; i < grupo1.length; i++) {
+        while (algunoVivo(grupo1) && algunoVivo(grupo2)) {
 
-            grupo2[i] = AppCreaPersonaje.crearPersonaje();
-        }
-        
-        while (flag) {
-
-            Personaje p1 = grupo1[(int)Math.random()*numGrupo1];
-            Personaje p2 = grupo2[(int)Math.random()*numGrupo2];
+            Personaje p1 = grupo1[(int)Math.random()*grupo1.length];
+            Personaje p2 = grupo2[(int)Math.random()*grupo2.length];
+            if (!p1.estaVivo() || !p2.estaVivo()) continue;
 
             Personaje[] batalla = AppCombateSingular.quienVa(p1, p2);
-            AppCombateSingular.pelea(p1, p2);
-
-            if (!p1.estaVivo()) {
-
-                int indice;
-
-                for (int i = 0; i < grupo1.length; i++) {
-
-                    if (grupo1[i].equals(p1)) indice = i;
-                }
-
-            }
+            AppCombateSingular.pelea(batalla[0], batalla[1]);
+                
         }
+
+        if (algunoVivo(grupo1)) {
+
+            System.out.println();
+            System.out.println("VICTORIA DEL EQUIPO 1");
+        } else {
+
+            System.out.println();
+            System.out.println("VICTORIA DEL EQUIPO 2");
+        }
+    }
+
+    static void mostrarEquipos(Personaje[] grupo1, Personaje[] grupo2) {
+
+        System.out.println();
+        System.out.println("**********************");
+        System.out.println("**********************");
+        System.out.println("MIEMBROS DEL EQUIPO 1: ");
+        System.out.println("**********************");
+        System.out.println("**********************");
+
+        for (int i = 0; i < grupo1.length; i++) {
+
+            grupo1[i].mostrar();
+        }
+
+        System.out.println();
+        System.out.println("**********************");
+        System.out.println("**********************");
+        System.out.println("MIEMBROS DEL EQUIPO 2: ");
+        System.out.println("**********************");
+        System.out.println("**********************");
+
+        for (int i = 0; i < grupo2.length; i++) {
+
+            grupo2[i].mostrar();
+        }
+    }
+
+    static Personaje[] crearGrupo (int numMin, int numMax) {
+
+        int numGrupo = Personaje.intAleatorioEntre(numMin, numMax);
+
+        Personaje[] grupo = new Personaje[numGrupo];
+
+        for (int i = 0; i < grupo.length; i++) {
+
+            grupo[i] = AppCreaPersonaje.crearPersonaje();
+        }
+        return grupo;
+    }    
+
+    static boolean algunoVivo (Personaje[] grupo) {
+
+        for (int i = 0; i < grupo.length; i++) {
+
+            if (grupo[i].estaVivo()) return true;      
+        }
+        return false;
     }
 }
