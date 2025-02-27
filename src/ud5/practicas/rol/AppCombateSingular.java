@@ -8,14 +8,14 @@ public class AppCombateSingular {
 
         //ORDEN DE ATAQUE SEGÚN AGILIDAD
 
-        Personaje[] ordenPelea = QuienVa (p1, p2);
+        Personaje[] ordenPelea = quienVa (p1, p2);
 
         //ATAQUE HASTA MUERTE DE UN PERSONAJE
 
         pelea(ordenPelea[0], ordenPelea[1]);
     }
 
-    static Personaje[] QuienVa (Personaje p1, Personaje p2) {
+    static Personaje[] quienVa (Personaje p1, Personaje p2) {
 
         Personaje primero, segundo;
 
