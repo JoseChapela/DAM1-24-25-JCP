@@ -23,6 +23,16 @@ public class Monstruo {
     
     //MÉTODOS
 
+    Monstruo generaMonstruoAleatorio() {
+
+        int num = Personaje.intAleatorioEntre(1, 10);
+        
+        if (num <= 4) return Orco.generarOrco();
+        else if (num <= 7) return Aranha.generarAranha();
+        else if (num <= 9) return Troll.generarTroll();
+        else return Dragon.generarDragon();
+    }
+
     boolean estaVivo() {
 
         if (puntosVida > 0) return true;
@@ -64,7 +74,9 @@ public class Monstruo {
 
     public String toString() {
 
-        
+        String cad = "";
+        if (nombre != "") cad = nombre + "-";
+        return cad + "Monstruo (" + puntosVida + ")";
     }
 
     public int getAtaque() {
@@ -81,6 +93,10 @@ public class Monstruo {
 
     public int getPuntosVida() {
         return puntosVida;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     
