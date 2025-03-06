@@ -75,6 +75,50 @@ public class Personaje {
         return String.format(this.nombre + "  (" + hp + "/" + maxhp + ")" );
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Personaje other = (Personaje) obj;
+        if (nombre != other.nombre)
+            return false;
+        if (raza != other.raza)
+            return false;
+        if (fuerza != other.fuerza)
+            return false;
+        if (agilidad != other.agilidad)
+            return false;
+        if (constitucion != other.constitucion)
+            return false;
+        if (hp != other.hp)
+            return false;
+        if (maxhp != other.maxhp)
+            return false;
+        if (nivel != other.nivel)
+            return false;
+        if (experiencia != other.experiencia)
+            return false;
+        return true;
+    }
+
+    public static Personaje[] sortAgilidadDesc (Personaje[] personajes) {
+
+        for (int i = 0; i < personajes.length - 1; i++) {
+            for (int j = 0; j < personajes.length - i - 1; j++) {
+                if (personajes[j].agilidad > personajes[j + 1].agilidad) {
+                    Personaje aux = personajes[j];
+                    personajes[j] = personajes[j + 1];
+                    personajes[j + 1] = aux;
+                }
+            }
+        }
+        return personajes;
+    }
+
     public byte sumarExperiencia (int puntos) {
 
         byte numNiveles = 0;
