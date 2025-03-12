@@ -29,6 +29,7 @@ public class AppCreaPersonaje {
         System.out.println("Personaje creado");
         System.out.println();
         p.mostrar();
+        sc.close();
     }
     
     static Personaje crearPersonaje() {
