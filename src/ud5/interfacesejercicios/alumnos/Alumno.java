@@ -28,4 +28,13 @@ public class Alumno implements Comparable{
 
         return apellido.compareTo(((Alumno)o).apellido);
     }
+
+    public static void main(String[] args) {
+        
+        Alumno[] alumnos = {new Alumno("Jose", "Sanchez", 36, 7),new Alumno("Adrian", "Lopez", 28, 6), new Alumno("Iris", "Garcia", 31, 9)};
+
+        System.out.println("ALUMNO ORDENADOS POR ORDEN NATURAL (Apellido)");
+        for (Alumno i: alumnos) System.out.println("\n" + i);
+
+    }
 }
