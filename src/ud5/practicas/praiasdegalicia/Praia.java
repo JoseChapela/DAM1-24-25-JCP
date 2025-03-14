@@ -1,12 +1,14 @@
 package ud5.practicas.praiasdegalicia;
 
-public class Praia {
+public class Praia implements Comparable{
     private int id;
     private String nome;
     private String concello;
     private String provincia;
     private double lat;
     private double lon;
+
+    //CONSTRUCTORES
 
     public Praia() {
     }
@@ -30,6 +32,22 @@ public class Praia {
         this.lat = lat;
         this.lon = lon;
     }
+
+    //MÉTODOS
+
+    @Override
+    public String toString() {
+
+        return String.format("%d - %s - %s - %s - (%f, %f)", id, nome, concello, provincia, lat, lon);
+    }
+
+    @Override
+    public int compareTo (Object o) {
+
+        
+    }
+
+    //GETTERS AND SETTERS
 
     public int getId() {
         return id;
