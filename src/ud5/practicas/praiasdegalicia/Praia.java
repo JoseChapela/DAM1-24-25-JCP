@@ -1,5 +1,8 @@
 package ud5.practicas.praiasdegalicia;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Praia implements Comparable{
     private int id;
     private String nome;
@@ -35,16 +38,86 @@ public class Praia implements Comparable{
 
     //MÉTODOS
 
+    //toString
     @Override
     public String toString() {
 
-        return String.format("%d - %s - %s - %s - (%f, %f)", id, nome, concello, provincia, lat, lon);
+        return String.format("%s (%s)", nome, concello);
     }
 
+    //compareTo
     @Override
     public int compareTo (Object o) {
 
+        return id - ((Praia)o).id;
+    }
+
+    //mostrarDetalles
+    public void mostrarDetalles() {
+
+        System.out.printf("%d - %s - %s - %s - (%f, %f)\n", id, nome, concello, provincia, lat, lon);
+    }
+
+    //imprimirLista
+    public static void imprimirLista(Praia[] praias, int numPraias) {
+
+        for (int i = 0; i < numPraias; i++) praias[i].mostrarDetalles();;
+    }
+
+    //Ordenar de Norte a Sur
+    public static Praia[] sortLatitudNorteSur(Praia[] p) {
+
+        Praia[] aux = Arrays.copyOf(p, p.length);
         
+        Comparator compararNorteSur = new Comparator() {
+
+            @Override
+            public int compare(Object o1, Object o2) {
+    
+                double dif = (((Praia)o2).lat - ((Praia)o1).lat)*100000;
+                if (dif > 0) return 1;
+                else if (dif < 0) return -1;
+                else return 0;
+            }
+        };
+        Arrays.sort(aux, compararNorteSur);
+        return aux;
+    }
+
+    //Ordenar de Norte a Sur
+    public static Praia[] sortProvinciaConcelloNome(Praia[] p) {
+
+        Praia[] aux = Arrays.copyOf(p, p.length);
+        
+        Comparator compararProvincia = new Comparator() {
+
+            @Override
+            public int compare(Object o1, Object o2) {
+    
+                return ((Praia)o1).provincia.compareTo(((Praia)o2).provincia);
+            }
+        };
+
+        Comparator compararConcello = new Comparator() {
+
+            @Override
+            public int compare(Object o1, Object o2) {
+    
+                return ((Praia)o1).concello.compareTo(((Praia)o2).concello);
+            }
+        };
+
+        Comparator compararNome = new Comparator() {
+
+            @Override
+            public int compare(Object o1, Object o2) {
+    
+                return ((Praia)o1).nome.compareTo(((Praia)o2).nome);
+            }
+        };
+
+        Arrays.sort(aux, compararProvincia.thenComparing(compararConcello).thenComparing(compararNome));
+        return aux;
     }
 
     //GETTERS AND SETTERS
