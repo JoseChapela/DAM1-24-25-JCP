@@ -1,9 +1,7 @@
 package ud6.ejercicios;
 
-public interface Pila<T> {
-    
+public interface Pila <T> {
     public void apilar(T e);
-    public T desapilar();
-
-    
+    public T desapilar();    
 }
+
