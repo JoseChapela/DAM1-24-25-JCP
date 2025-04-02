@@ -36,17 +36,6 @@ public class E1210 {
             }
         }
 
-        System.out.println("LISTA");
-        System.out.println(lista);
-
-        System.out.println("\nLISTA SIN REPETIDOS");
-        System.out.println(sinRepetidos);
-
-        System.out.println("\nELEMENTOS QUE SE REPITEN");
-        System.out.println(elementosRepetidos);
-
-        System.out.println("\nElEMENTOS QUE SOLO APARECEN UNA VEZ");
-        System.out.println(elementosSinRepetir);
     }
 
 }
