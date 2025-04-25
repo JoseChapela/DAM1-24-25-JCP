@@ -11,6 +11,14 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class Feitizo {
+    public String getNome() {
+        return nome;
+    }
+
+    public Integer getDificultade() {
+        return dificultade;
+    }
+
     // Atributos
     private String nome;
     List<String> ingredientes;
