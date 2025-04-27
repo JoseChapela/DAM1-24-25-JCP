@@ -11,13 +11,6 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class Feitizo {
-    public String getNome() {
-        return nome;
-    }
-
-    public Integer getDificultade() {
-        return dificultade;
-    }
 
     // Atributos
     private String nome;
@@ -76,14 +69,17 @@ public class Feitizo {
     }
 
     public boolean addIngrediente(String ingrediente) {
-        return true;
+        return ingredientes.add(ingrediente);
     }
 
     public boolean removeIngrediente(String ingrediente) {
-        return true;
+        return ingredientes.add(ingrediente);
     }
 
     public boolean cambiarIngrediente(String ingredienteViejo, String ingredienteNuevo) {
+        if (ingredientes.indexOf(ingredienteViejo)<0)
+            return false;
+        ingredientes.set(ingredientes.indexOf(ingredienteViejo), ingredienteNuevo);
         return true;
     }
 
@@ -115,6 +111,14 @@ public class Feitizo {
             mapa.put(i, Collections.frequency(ingredientesRepetidos, i));
         }
         return mapa;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Integer getDificultade() {
+        return dificultade;
     }
 
 }
