@@ -63,4 +63,14 @@ public class Jugador {
                 System.out.println(e.getKey() + " - " + e.getValue());
         }
     }
+
+    static boolean editarJugador(Map<Integer, Jugador> plantilla, Integer dorsal, Jugador jugador) {
+        if (!plantilla.containsKey(dorsal))
+            return false;
+        if (!plantilla.get(dorsal).dni.equals(jugador.dni))
+            return false;
+        plantilla.put(dorsal, jugador);
+        return true;
+
+    }
 }
