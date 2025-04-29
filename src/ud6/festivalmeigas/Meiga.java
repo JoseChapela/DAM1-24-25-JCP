@@ -81,7 +81,15 @@ public class Meiga implements Comparable<Meiga>{
 
     static void sortByNumIngredientes(Meiga[] meigas) {
 
-        Arrays.sort(meigas, (m1, m2) -> m1.ingredientes.size()-m2.ingredientes.size());
+        Arrays.sort(meigas, Comparator.comparing(Meiga::contarIngredientes));
+    }
+
+    int contarIngredientes() {
+        Collection <Integer> numIngredientes = ingredientes.values();
+        int cantidad=0;
+        for (Integer i : numIngredientes)
+            cantidad+=i;
+        return cantidad;
     }
 
     static Collection<Feitizo> getFeitizosRnd(Collection<Feitizo> feitizos) {
@@ -135,7 +143,8 @@ public class Meiga implements Comparable<Meiga>{
 
         Set<String> ing = ingredientes.keySet();
         if(ing.containsAll(f.ingredientes)){
-            ing.removeAll(f.ingredientes);
+            for (String i : f.ingredientes)
+                ingredientes.put(i, ingredientes.get(i)-1);
             System.out.println(nome + " - " + f.getNome());
         }
     }
