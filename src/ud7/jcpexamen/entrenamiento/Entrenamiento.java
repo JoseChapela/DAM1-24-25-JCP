@@ -2,9 +2,10 @@
 
 package ud7.jcpexamen.entrenamiento;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Entrenamiento {
+public class Entrenamiento implements Serializable{
 
     String nome;
     String fecha;
